@@ -72,6 +72,7 @@ final class ResultConverter implements ResultConverterInterface
         }
 
         if ($options['stream'] ?? false) {
+            // Passes itself by reference to enable the addition of metadata during streaming.
             $streamResult = new StreamResult($this->convertStream($result, $streamResult));
 
             return $streamResult;
